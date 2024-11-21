@@ -1,5 +1,6 @@
 import express from 'express';
 import sqlite3 from 'sqlite3';
+import services from './services/productService';
 
 const db = new sqlite3.Database('./products.db', (err) => {
     if (err) {
@@ -9,18 +10,11 @@ const db = new sqlite3.Database('./products.db', (err) => {
 });
 
 
-const app = express()
+const app = express()   
 app.use(express.json());
 // GET products
 app.get('/products', (req, res) => {
-    db.all('SELECT * FROM products', (err, rows) => {
-        if (err) {
-            console.error(err.message);
-            res.status(500).send('Internal server error');
-        } else {
-            res.send(rows);
-        }
-    });
+    services.findProducts(res)
 });
 
 

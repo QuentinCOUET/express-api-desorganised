@@ -1,0 +1,6 @@
+Dans un premier temps le problème que l'on retrouve dans ce code est que tout est regroupé dans un seul et même fichier (app.js)
+Pour résoudre ce problème nous pouvons répartir le code dans plusieurs couches qui auront chacune une focntionnalité bien précise.
+Exemple :
+    - La couche Model où on retrouve nos entités.
+    - La couche Service où on retrouve le traitement et les règles métier.
+    - La couche Controller où on retrouve nos différents endpoint.
